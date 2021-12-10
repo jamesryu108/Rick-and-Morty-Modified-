@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Rick and Morty
+
+  Created by James Ryu on 2021-12-10.
+  
+*/
+"Rick & Morty App" = "Rick & Morty App";
+"Info" = "Info";
+"Name: " = "Name: ";
+"Air Date: " = "Air Date: ";
+"Episode: " = "Episode: ";
+"Cast" = "Cast";
+
