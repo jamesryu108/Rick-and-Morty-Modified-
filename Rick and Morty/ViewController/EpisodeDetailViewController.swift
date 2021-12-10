@@ -30,19 +30,19 @@ class EpisodeDetailViewController: UIViewController, SetupTheViewController {
         setupTheViewController()
     }
     /// Setting up VC UI
-    func setupTheViewController() {
+    private func setupTheViewController() {
         
     }
     
     /// Add and stylize UI objects here
-    func configureUIElements() {
+    private func configureUIElements() {
         view.addSubview(topView)
         view.addSubview(itemViewOne)
         view.addSubview(itemViewTwo)
     }
     
     /// Set up the constraints of UI objects here
-    func configureConstraints() {
+    private func configureConstraints() {
         
         topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, verticalSpace: 8, left: view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 0, right: view.safeAreaLayoutGuide.rightAnchor, height: 180)
         

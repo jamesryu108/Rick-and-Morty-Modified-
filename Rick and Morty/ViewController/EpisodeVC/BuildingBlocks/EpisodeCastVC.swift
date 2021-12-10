@@ -8,7 +8,7 @@
 import UIKit
 
 /// Bottom view that will go to the bottom of the EpisodeDetailViewController. This section will show all characters that appeared in the episode, using CV.
-class EpisodeCastVC: UIViewController, EpisodeViewFuncs {
+final class EpisodeCastVC: UIViewController, EpisodeViewFuncs {
     
     // MARK: - Data
     var characters: [CharacterResults] = []
@@ -53,18 +53,19 @@ class EpisodeCastVC: UIViewController, EpisodeViewFuncs {
         cv!.anchor(top: titleLabel.bottomAnchor, verticalSpace: 8, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 8, right: self.view.safeAreaLayoutGuide.rightAnchor)
     }
     
-    func configureUIElements() {
+    private func configureUIElements() {
         self.view.addSubview(titleLabel)
         titleLabel.text = "Cast".localize(comment: "")
         titleLabel.textColor = .black
     }
     
-    func configureConstraints() {
+    private func configureConstraints() {
         titleLabel.anchor(top: self.view.topAnchor, verticalSpace: 8, bottom: nil, left: self.view.leftAnchor, horizontalSpace: 8, right: self.view.rightAnchor, width: nil, height: 32, centerX: nil, centerY: nil)
     }
 }
 
 extension EpisodeCastVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         characters.count
     }

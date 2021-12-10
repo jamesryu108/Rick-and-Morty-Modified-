@@ -17,7 +17,7 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
         
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
+        view.backgroundColor = .systemGray6
         return view
     }()
     
@@ -37,7 +37,7 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
     func addData(data: Results) {
         let originalString = "\(data.episode)"
         let formattedString = NSMutableAttributedString(string: originalString)
-        formattedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: originalString.count))
+        formattedString.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: originalString.count))
         episodeTitleLabel.attributedText = formattedString
     }
     

@@ -34,22 +34,17 @@ class ViewController: UIViewController, SetupTheViewController {
     // MARK: - View
     /// Suitable for adding tasks that only needs to be done once after view is loaded. (e.g. Network calls, setting up UI objects and etc)
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-                        
         setupTheViewController()
         setupCollectionView()
         setupDataSource()
         fetchEpisodes()
     }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let vc = segue.destination as? EpisodeDetailViewController {
             vc.resultsData = resultArray[selectedIndex!]
         }
     }
-    
     // MARK: - Network func
     
     /// Network function to fetch episodes from the server
@@ -59,24 +54,20 @@ class ViewController: UIViewController, SetupTheViewController {
             self.present(self.AlertControllerPresenter(title: "Error", message: "Loaded all already"), animated: true, completion: nil)
             return
         }
-        
         // Add 1 to the pageCount
         pageCount += 1
-        
+        //activityIndicator.startAnimating()
         networkManager.getAllEpisodes(pageCount: pageCount) { [self] result in
             switch result {
             case .success(let episode):
-                
                 for res in episode!.results {
                     resultArray.append(res)
                 }
-                                
                 maxepisodeCount = episode!.info.count
                 
                 DispatchQueue.main.async { [self] in
                    updateData()
                 }
-                
             case .failure(let error):
                 
                 DispatchQueue.main.async {
@@ -161,7 +152,6 @@ extension ViewController: UICollectionViewDelegate {
             cv!.reloadData()
         }
     }
-    
     /// Once scroll down to the end, load more. Check
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Fetch if you are almost scrolled to the bottom of the list AND maximum episode have not yet been fetched...
@@ -169,7 +159,6 @@ extension ViewController: UICollectionViewDelegate {
             fetchEpisodes()
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: EpisodeDetailViewController.segueIdentifier, sender: self)

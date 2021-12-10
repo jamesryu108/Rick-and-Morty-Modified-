@@ -8,7 +8,7 @@
 import UIKit
 
 /// Topmost View that will go to the EpisodeDetailViewController
-class EpisodeTopImageVC: UIViewController, EpisodeViewFuncs, SetupTheViewController {
+final class EpisodeTopImageVC: UIViewController, EpisodeViewFuncs, SetupTheViewController {
     
     let topImageView: EpisodeTopImageView = EpisodeTopImageView(frame: .zero)
     let episodeTitleLabel = AttributedTitleLabel(fontSize: 25)
@@ -33,7 +33,7 @@ class EpisodeTopImageVC: UIViewController, EpisodeViewFuncs, SetupTheViewControl
     func setupTheViewController() {
     }
     /// Stylize elements here
-     func configureUIElements() {
+     private func configureUIElements() {
          self.view.addSubview(topImageView)
          topImageView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, verticalSpace: 0, left: self.view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 0, right: self.view.safeAreaLayoutGuide.rightAnchor, height: 200, centerX: self.view.centerXAnchor)
          
