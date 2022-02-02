@@ -9,14 +9,9 @@ import UIKit
 
 extension UIViewController {
     
-    func AlertControllerPresenter(title: String, message: String) -> UIAlertController {
-        
+    func alertControllerPresenter(title: String, message: String) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Okay", style: .default)
-        
-            alertController.addAction(action)
-        
+        alertController.addAction(.init(title: "Okay", style: .default))
         return alertController
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EpisodeDetailViewController: UIViewController, SetupTheViewController {
+class EpisodeInfoContainer: UIViewController, SetupTheViewController {
     
     /// Network manager managing all the data fetching
     let networkManager = NetworkingManager.shared
@@ -26,12 +26,15 @@ class EpisodeDetailViewController: UIViewController, SetupTheViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchCharacters(ids: characterIDs(addresses: resultsData!.characters))
+        
+        if let resultsData = resultsData {
+            fetchCharacters(ids: characterIDs(addresses: resultsData.characters))
+        }
+        
         setupTheViewController()
     }
     /// Setting up VC UI
-    private func setupTheViewController() {
-        
+    func setupTheViewController() {
     }
     
     /// Add and stylize UI objects here
@@ -43,11 +46,8 @@ class EpisodeDetailViewController: UIViewController, SetupTheViewController {
     
     /// Set up the constraints of UI objects here
     private func configureConstraints() {
-        
         topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, verticalSpace: 8, left: view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 0, right: view.safeAreaLayoutGuide.rightAnchor, height: 180)
-        
         itemViewOne.anchor(top: topView.bottomAnchor, verticalSpace: 8, left: view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 0, right: view.safeAreaLayoutGuide.rightAnchor, height: 140)
-        
         itemViewTwo.anchor(top: itemViewOne.bottomAnchor, verticalSpace: 8, left: view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 0, right: view.safeAreaLayoutGuide.rightAnchor, height: 200)
     }
     
@@ -104,7 +104,7 @@ class EpisodeDetailViewController: UIViewController, SetupTheViewController {
                 
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.present(self.AlertControllerPresenter(title: "Error while fetching character data", message: error.rawValue), animated: true) {
+                    self.present(self.alertControllerPresenter(title: "Error while fetching character data", message: error.rawValue), animated: true) {
                     }
                 }
             }

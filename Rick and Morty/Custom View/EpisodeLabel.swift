@@ -11,7 +11,7 @@ class EpisodeLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -19,7 +19,7 @@ class EpisodeLabel: UILabel {
     }
     
     /// Set up the label settings such as font size, text color and etc.
-    private func setup() {
+    private func configure() {
         textColor = .white
         font = UIFont.systemFont(ofSize: 20, weight: .bold)
         translatesAutoresizingMaskIntoConstraints = false

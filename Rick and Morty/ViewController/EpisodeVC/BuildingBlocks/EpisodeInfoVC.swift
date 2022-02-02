@@ -10,7 +10,7 @@ import UIKit
 /// Middle view that will go to the EpisodeDetailViewController. This section will show information like name of episode, airdate, and episode number. (e.g. Season 1 Episode 1)
 final class EpisodeInfoVC: UIViewController {
     
-    var episode: Results!
+    var episode: Results?
     let stackManager = StackManager()
     
     let titleLabel = AttributedTitleLabel(fontSize: 30)
@@ -43,9 +43,9 @@ final class EpisodeInfoVC: UIViewController {
         titleLabel.text = "Info".localize(comment: "Info title")
         titleLabel.textColor = .label
         
-        nameLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Name: ".localize(comment: ""), episodeName: episode.name)
-        airDateLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Air Date: ".localize(comment: ""), episodeName: episode.airDate)
-        episodeNumberLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Episode: ".localize(comment: ""), episodeName: episode.episode)
+        nameLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Name: ".localize(comment: ""), episodeName: episode != nil ? episode!.name : "")
+        airDateLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Air Date: ".localize(comment: ""), episodeName: episode != nil ? episode!.airDate : "")
+        episodeNumberLabel.attributedText = AttributeStringManager.outputAttributedString(text: "Episode: ".localize(comment: ""), episodeName: episode != nil ? episode!.episode : "")
 
         vStack = stackManager.stackMaker(views: [nameLabel, airDateLabel, episodeNumberLabel], settings: StackSettings(alignment: .leading, axis: .vertical, distribution: .fillEqually))
         

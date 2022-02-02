@@ -8,15 +8,12 @@
 import UIKit
 
 class MyActivityIndicator {
-
+    
     /// Indicator that runs while something is loading. Then it disappears once task finishes.
     var activityIndicator: UIActivityIndicatorView = {
-        
         let view = UIActivityIndicatorView()
-        
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.color = .systemBlue
-        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.color = .systemBlue
         return view
     }()
     

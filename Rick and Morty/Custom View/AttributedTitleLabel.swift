@@ -7,8 +7,8 @@
 
 import UIKit
 
-class AttributedTitleLabel: UILabel{
-
+class AttributedTitleLabel: UILabel {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -22,7 +22,7 @@ class AttributedTitleLabel: UILabel{
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
     }
-      
+    
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         numberOfLines = 0

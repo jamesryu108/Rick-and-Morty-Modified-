@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="109.82142857142857"/>
         </scene>
-        <!--Episode Detail View Controller-->
+        <!--Episode Info Container-->
         <scene sceneID="M8A-fK-ELn">
             <objects>
-                <viewController id="Pna-fF-nzG" customClass="EpisodeDetailViewController" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pna-fF-nzG" customClass="EpisodeInfoContainer" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ed9-SE-tKK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

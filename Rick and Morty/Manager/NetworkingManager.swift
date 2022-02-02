@@ -19,7 +19,7 @@ class NetworkingManager {
     let cache = NSCache<NSString, UIImage>()
 
     /// Base url that you end point to
-    let baseURLEpisode = "https://rickandmortyapi.com/api/episode"
+    let baseURLEpisode = "https://rickandmortyapi.com/api/episode/"
     let baseURLCharacter = "https://rickandmortyapi.com/api/character/"
 
     private init() {}
@@ -39,7 +39,7 @@ class NetworkingManager {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
             
             guard let self = self,
                 error == nil,

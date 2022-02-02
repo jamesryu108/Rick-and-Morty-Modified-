@@ -14,13 +14,18 @@ final class EpisodeCastVC: UIViewController, EpisodeViewFuncs {
     var characters: [CharacterResults] = []
     // MARK: - UICollectionView
     /// CollectionView
-    var cv: UICollectionView?
+    lazy var cv: UICollectionView =  {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelperFunctions.createCVLayout(view: self.view, itemsPerRow: 3, scrollDirection: .horizontal))
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return cv
+    }()
     // MARK: - Objects
     var titleLabel = AttributedTitleLabel(fontSize: 30)
     // MARK: - Network Caller
     /// Network manager that calls for data
     let networkManager = NetworkingManager.shared
-
+    
     init(characters: [CharacterResults]) {
         super.init(nibName: nil, bundle: nil)
         self.characters = characters
@@ -39,27 +44,23 @@ final class EpisodeCastVC: UIViewController, EpisodeViewFuncs {
     
     func setupCollectionView() {
         
-        cv = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelperFunctions.createCVLayout(view: self.view, itemsPerRow: 3, scrollDirection: .horizontal))
+        cv.delegate = self
+        cv.dataSource = self
         
-        cv!.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(EpisodeCastCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeCastCollectionViewCell.reuseIdentifier)
         
-        cv!.delegate = self
-        cv!.dataSource = self
+        self.view.addSubview(cv)
         
-        cv!.register(EpisodeCastCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeCastCollectionViewCell.reuseIdentifier)
-        
-        self.view.addSubview(cv!)
-
-        cv!.anchor(top: titleLabel.bottomAnchor, verticalSpace: 8, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 8, right: self.view.safeAreaLayoutGuide.rightAnchor)
+        cv.anchor(top: titleLabel.bottomAnchor, verticalSpace: 8, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, horizontalSpace: 8, right: self.view.safeAreaLayoutGuide.rightAnchor)
     }
     
-    private func configureUIElements() {
+    func configureUIElements() {
         self.view.addSubview(titleLabel)
         titleLabel.text = "Cast".localize(comment: "")
         titleLabel.textColor = .black
     }
     
-    private func configureConstraints() {
+    func configureConstraints() {
         titleLabel.anchor(top: self.view.topAnchor, verticalSpace: 8, bottom: nil, left: self.view.leftAnchor, horizontalSpace: 8, right: self.view.rightAnchor, width: nil, height: 32, centerX: nil, centerY: nil)
     }
 }
@@ -72,8 +73,10 @@ extension EpisodeCastVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCastCollectionViewCell.reuseIdentifier, for: indexPath) as! EpisodeCastCollectionViewCell
-                
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCastCollectionViewCell.reuseIdentifier, for: indexPath) as? EpisodeCastCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
         networkManager.downloadImage(from: characters[indexPath.row].image, completed: { image in
             DispatchQueue.main.async { [self] in
                 cell.characterImage.image = image!

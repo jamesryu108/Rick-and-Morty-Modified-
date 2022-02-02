@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct StackSettings {
+    var alignment: UIStackView.Alignment
+    var axis: NSLayoutConstraint.Axis
+    var distribution: UIStackView.Distribution
+}
+
 /// Manages the creation of UIStackView. Very flexible because it takes in StackSettings data type to decide how UIStackView will look and behave.
 struct StackManager {
     

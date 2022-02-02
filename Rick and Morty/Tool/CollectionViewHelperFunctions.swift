@@ -28,12 +28,11 @@ struct CollectionViewHelperFunctions {
         flowLayout.itemSize = CGSize(width: widthAvailableInPoints / itemsPerRow, height: widthAvailableInPoints / itemsPerRow)
         flowLayout.scrollDirection = scrollDirection
         
-       return flowLayout
+        return flowLayout
     }
     
     /// Set up Flow layout based on certain number of rows
-    func createLayout(view: UIView) -> UICollectionViewFlowLayout {
-        
+    static func createLayout(view: UIView) -> UICollectionViewFlowLayout {
         /// Total width in the view (in points)
         let width: CGFloat = view.bounds.width
         /// Space between the cell
@@ -46,11 +45,10 @@ struct CollectionViewHelperFunctions {
         let widthAvailableInPoints: CGFloat = width - (paddingSize * 2) - (minimumItemSpacing * 2)
         
         let flowLayout = UICollectionViewFlowLayout()
-        
         flowLayout.sectionInset = UIEdgeInsets(top: paddingSize, left: paddingSize, bottom: paddingSize, right: paddingSize)
         flowLayout.itemSize = CGSize(width: widthAvailableInPoints / itemsPerRow, height: widthAvailableInPoints / itemsPerRow)
         flowLayout.scrollDirection = .horizontal
         
-       return flowLayout
+        return flowLayout
     }
 }

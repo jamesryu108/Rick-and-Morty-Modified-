@@ -14,11 +14,10 @@
 		9ED22BFD2763A7B800A34252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ED22BFC2763A7B800A34252 /* Assets.xcassets */; };
 		9ED22C002763A7B800A34252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ED22BFE2763A7B800A34252 /* LaunchScreen.storyboard */; };
 		9ED22C122763A84A00A34252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C112763A84A00A34252 /* ViewController.swift */; };
-		9ED22C142763A8B400A34252 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C132763A8B400A34252 /* EpisodeDetailViewController.swift */; };
+		9ED22C142763A8B400A34252 /* EpisodeInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C132763A8B400A34252 /* EpisodeInfoContainer.swift */; };
 		9ED22C1C2763A92600A34252 /* EpisodeTopImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C1B2763A92600A34252 /* EpisodeTopImageVC.swift */; };
 		9ED22C1E2763A98000A34252 /* SetupTheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C1D2763A98000A34252 /* SetupTheViewController.swift */; };
 		9ED22C202763A9E500A34252 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C1F2763A9E500A34252 /* Episode.swift */; };
-		9ED22C222763AA1400A34252 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C212763AA1400A34252 /* Section.swift */; };
 		9ED22C242763AA4900A34252 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C232763AA4900A34252 /* UIViewController + Ext.swift */; };
 		9ED22C262763AA9200A34252 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C252763AA9200A34252 /* NetworkingManager.swift */; };
 		9ED22C282763AAEC00A34252 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C272763AAEC00A34252 /* NetworkError.swift */; };
@@ -27,11 +26,9 @@
 		9ED22C2E2763AC3300A34252 /* EpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C2D2763AC3300A34252 /* EpisodeCollectionViewCell.swift */; };
 		9ED22C302763AC5000A34252 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C2F2763AC5000A34252 /* UIView + Ext.swift */; };
 		9ED22C322763AC6D00A34252 /* AttributedTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C312763AC6D00A34252 /* AttributedTitleLabel.swift */; };
-		9ED22C342763AD5400A34252 /* EpisodeViewFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C332763AD5400A34252 /* EpisodeViewFuncs.swift */; };
 		9ED22C362763AD8600A34252 /* EpisodeTopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C352763AD8600A34252 /* EpisodeTopImageView.swift */; };
 		9ED22C382763ADD900A34252 /* EpisodeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C372763ADD900A34252 /* EpisodeInfoVC.swift */; };
 		9ED22C3A2763AE4200A34252 /* AttributeStringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C392763AE4200A34252 /* AttributeStringManager.swift */; };
-		9ED22C3C2763AED100A34252 /* StackSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C3B2763AED100A34252 /* StackSettings.swift */; };
 		9ED22C3E2763AF1E00A34252 /* StackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C3D2763AF1E00A34252 /* StackManager.swift */; };
 		9ED22C402763B01600A34252 /* EpisodeCastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C3F2763B01600A34252 /* EpisodeCastVC.swift */; };
 		9ED22C422763B15C00A34252 /* EpisodeCastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED22C412763B15C00A34252 /* EpisodeCastCollectionViewCell.swift */; };
@@ -59,11 +56,10 @@
 		9ED22BFF2763A7B800A34252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ED22C012763A7B800A34252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ED22C112763A84A00A34252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9ED22C132763A8B400A34252 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		9ED22C132763A8B400A34252 /* EpisodeInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoContainer.swift; sourceTree = "<group>"; };
 		9ED22C1B2763A92600A34252 /* EpisodeTopImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTopImageVC.swift; sourceTree = "<group>"; };
 		9ED22C1D2763A98000A34252 /* SetupTheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTheViewController.swift; sourceTree = "<group>"; };
 		9ED22C1F2763A9E500A34252 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		9ED22C212763AA1400A34252 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		9ED22C232763AA4900A34252 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 		9ED22C252763AA9200A34252 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		9ED22C272763AAEC00A34252 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -72,11 +68,9 @@
 		9ED22C2D2763AC3300A34252 /* EpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9ED22C2F2763AC5000A34252 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		9ED22C312763AC6D00A34252 /* AttributedTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTitleLabel.swift; sourceTree = "<group>"; };
-		9ED22C332763AD5400A34252 /* EpisodeViewFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewFuncs.swift; sourceTree = "<group>"; };
 		9ED22C352763AD8600A34252 /* EpisodeTopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTopImageView.swift; sourceTree = "<group>"; };
 		9ED22C372763ADD900A34252 /* EpisodeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoVC.swift; sourceTree = "<group>"; };
 		9ED22C392763AE4200A34252 /* AttributeStringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeStringManager.swift; sourceTree = "<group>"; };
-		9ED22C3B2763AED100A34252 /* StackSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackSettings.swift; sourceTree = "<group>"; };
 		9ED22C3D2763AF1E00A34252 /* StackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackManager.swift; sourceTree = "<group>"; };
 		9ED22C3F2763B01600A34252 /* EpisodeCastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCastVC.swift; sourceTree = "<group>"; };
 		9ED22C412763B15C00A34252 /* EpisodeCastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCastCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -151,7 +145,7 @@
 			children = (
 				9ED22C172763A8EA00A34252 /* MainVC */,
 				9ED22C162763A8DE00A34252 /* EpisodeVC */,
-				9ED22C132763A8B400A34252 /* EpisodeDetailViewController.swift */,
+				9ED22C132763A8B400A34252 /* EpisodeInfoContainer.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -169,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				9ED22C1F2763A9E500A34252 /* Episode.swift */,
-				9ED22C3B2763AED100A34252 /* StackSettings.swift */,
 				9ED22C432763B2E400A34252 /* Info.swift */,
 				9ED22C452763B2FE00A34252 /* Results.swift */,
 				9ED22C472763B31A00A34252 /* Location.swift */,
@@ -185,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				9ED22C1D2763A98000A34252 /* SetupTheViewController.swift */,
-				9ED22C332763AD5400A34252 /* EpisodeViewFuncs.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -193,7 +185,6 @@
 		9ED22C0B2763A80600A34252 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				9ED22C212763AA1400A34252 /* Section.swift */,
 				9ED22C272763AAEC00A34252 /* NetworkError.swift */,
 			);
 			path = Enum;
@@ -340,21 +331,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ED22C4C2763B34000A34252 /* CharacterResults.swift in Sources */,
-				9ED22C222763AA1400A34252 /* Section.swift in Sources */,
 				9ED22C282763AAEC00A34252 /* NetworkError.swift in Sources */,
 				9ED22C302763AC5000A34252 /* UIView + Ext.swift in Sources */,
 				9ED22C442763B2E400A34252 /* Info.swift in Sources */,
 				9ED22C4E2763B35A00A34252 /* Origin.swift in Sources */,
-				9ED22C142763A8B400A34252 /* EpisodeDetailViewController.swift in Sources */,
+				9ED22C142763A8B400A34252 /* EpisodeInfoContainer.swift in Sources */,
 				9ED22C522763B39000A34252 /* UIColor + Ext.swift in Sources */,
 				9ED22C202763A9E500A34252 /* Episode.swift in Sources */,
 				9ED22C2C2763AC0600A34252 /* CollectionViewHelperFunctions.swift in Sources */,
 				9ED22C3A2763AE4200A34252 /* AttributeStringManager.swift in Sources */,
-				9ED22C342763AD5400A34252 /* EpisodeViewFuncs.swift in Sources */,
 				9ED22C1E2763A98000A34252 /* SetupTheViewController.swift in Sources */,
 				9ED22C482763B31A00A34252 /* Location.swift in Sources */,
 				9ED22C422763B15C00A34252 /* EpisodeCastCollectionViewCell.swift in Sources */,
-				9ED22C3C2763AED100A34252 /* StackSettings.swift in Sources */,
 				9ED22C662763CDA900A34252 /* ActivityIndicator.swift in Sources */,
 				9ED22C122763A84A00A34252 /* ViewController.swift in Sources */,
 				9ED22BFB2763A7B500A34252 /* Rick_and_Morty.xcdatamodeld in Sources */,

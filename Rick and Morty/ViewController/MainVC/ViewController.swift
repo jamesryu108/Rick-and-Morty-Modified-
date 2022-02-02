@@ -7,6 +7,10 @@
 
 import UIKit
 
+private enum Section {
+    case main
+}
+
 class ViewController: UIViewController, SetupTheViewController {
     
     // MARK: - Data
@@ -17,7 +21,7 @@ class ViewController: UIViewController, SetupTheViewController {
     /// Keep track of total episodes that have been feteched
     var episodeCount: Int = 0
     /// Maximum episode available from the API
-    var maxepisodeCount: Int = 51
+    var maxEpisodeCount: Int = 51
     /// Total page counts
     var pageCount: Int = 0
     
@@ -25,7 +29,7 @@ class ViewController: UIViewController, SetupTheViewController {
     /// CollectionView
     var cv: UICollectionView?
     /// Data source of UICollectionView that was created using UICollectionViewDiffableDataSource
-    var dataSource: UICollectionViewDiffableDataSource<Section, Results>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Results>!
     
     // MARK: - Network Caller
     /// Network manager that calls for data
@@ -41,17 +45,15 @@ class ViewController: UIViewController, SetupTheViewController {
         fetchEpisodes()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? EpisodeDetailViewController {
-            vc.resultsData = resultArray[selectedIndex!]
+        if let vc = segue.destination as? EpisodeInfoContainer, let selectedIndex = selectedIndex {
+            vc.resultsData = resultArray[selectedIndex]
         }
     }
     // MARK: - Network func
-    
     /// Network function to fetch episodes from the server
     func fetchEpisodes() {
-                
-        guard maxepisodeCount > episodeCount else {
-            self.present(self.AlertControllerPresenter(title: "Error", message: "Loaded all already"), animated: true, completion: nil)
+        guard maxEpisodeCount > episodeCount else {
+            self.present(self.alertControllerPresenter(title: "Error", message: "Loaded all already"), animated: true, completion: nil)
             return
         }
         // Add 1 to the pageCount
@@ -63,7 +65,7 @@ class ViewController: UIViewController, SetupTheViewController {
                 for res in episode!.results {
                     resultArray.append(res)
                 }
-                maxepisodeCount = episode!.info.count
+                maxEpisodeCount = episode!.info.count
                 
                 DispatchQueue.main.async { [self] in
                    updateData()
@@ -71,7 +73,7 @@ class ViewController: UIViewController, SetupTheViewController {
             case .failure(let error):
                 
                 DispatchQueue.main.async {
-                    self.present(self.AlertControllerPresenter(title: "Error", message: error.rawValue), animated: true) {
+                    self.present(self.alertControllerPresenter(title: "Error", message: error.rawValue), animated: true) {
                     }
                 }
             }
@@ -85,7 +87,6 @@ class ViewController: UIViewController, SetupTheViewController {
         if let _ = navigationController {
             
             title = "Rick & Morty App".localize(comment: "")
-            
             addRightBarItem()
         }
     }
@@ -112,7 +113,6 @@ class ViewController: UIViewController, SetupTheViewController {
         
         cv!.translatesAutoresizingMaskIntoConstraints = false
         cv!.backgroundColor = .systemBackground
-        
         cv!.delegate = self
         
         cv!.register(EpisodeCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeCollectionViewCell.reuseIdentifier)
@@ -129,9 +129,13 @@ extension ViewController: UICollectionViewDelegate {
     /// Setting up the data source for the UICollectionView
     func setupDataSource() {
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: cv!, cellProvider: { [self] (collectionView, indexPath, item) -> UICollectionViewCell? in
+        guard let cv = cv else { return }
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: cv, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCollectionViewCell.reuseIdentifier, for: indexPath) as! EpisodeCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodeCollectionViewCell.reuseIdentifier, for: indexPath) as? EpisodeCollectionViewCell else {
+                return nil
+            }
             
             cell.setupTheCell()
             cell.addData(data: item)
@@ -149,19 +153,24 @@ extension ViewController: UICollectionViewDelegate {
         DispatchQueue.main.async { [self] in
             dataSource.apply(snapshot, animatingDifferences: true) {
             }
-            cv!.reloadData()
+            
+            guard let cv = cv else {
+                reeturn
+            }
+            
+            cv.reloadData()
         }
     }
     /// Once scroll down to the end, load more. Check
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Fetch if you are almost scrolled to the bottom of the list AND maximum episode have not yet been fetched...
-        if ((resultArray.count - 4) == indexPath.row) && (resultArray.count != maxepisodeCount) {
+        if ((resultArray.count - 4) == indexPath.row) && (resultArray.count != maxEpisodeCount) {
             fetchEpisodes()
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        performSegue(withIdentifier: EpisodeDetailViewController.segueIdentifier, sender: self)
+        performSegue(withIdentifier: EpisodeInfoContainer.segueIdentifier, sender: self)
     }
 }
 
