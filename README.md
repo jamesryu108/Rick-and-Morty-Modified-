@@ -1,17 +1,18 @@
 # Rick-and-Morty-Modified-
 The characteristics of this UIKit-exclusive app:
 
-UIKit
-MVC
-Diffable Data source
-Dark Mode
-Networking is done using URLSession only. (No Alamofire)
-Used NSCache to avoid fetching same images many times
-Localization supported (Korean)
-No 3rd-party framework used
-Get all episode information on request.
-Fetch all appeared characters for each episode.
-Parses JSON data using Decodable protocol
+* UIKit
+* MVC
+* Diffable Data source
+*  Dark Mode
+* Networking is done using URLSession only. (No Alamofire)
+* Used NSCache to avoid fetching same images many times
+* Localization supported (Korean)
+* No 3rd-party framework used
+* Get all episode information on request.
+* Fetch all appeared characters for each episode.
+* Parses JSON data using Decodable protocol
+
 What makes this app worthy?
 
 While this app does not offer many features, this app is worthy for its architecture and general reusuability that comes with it. It will be easier to remove/add features in the future because of its architecture.
